@@ -218,8 +218,8 @@
                     <div class="y_df">
                         <input type="email" class="form-control" th:field="*{email}" name="mail" id="mail" placeholder="이메일 입력">
                         <button class="btn btn-outline-success btn-md" type="button" id="sendBtn" name="sendBtn" onclick="sendNumber()">인증번호 전송</button>
-                        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">Incorrect data</p>
                     </div>
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">Incorrect data</p>
                     <!--인증번호 인증-->
                     <div class="y_df" id="mail_number" name="mail_number">
                         <input type="text" class="form-control" name="number" id="number" placeholder="인증번호 입력">
@@ -252,7 +252,6 @@
                 </div>
                 <div>
                     <button type="submit" class="btn btn-success btn-lg y_btnsign" >회원가입</button>
-
                 </div>
                 <div class="y_login">
                     <span>이미 회원이신가요?</span>

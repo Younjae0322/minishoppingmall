@@ -104,28 +104,23 @@
     </div>
 
     <div class="container px-4 px-lg-5 mt-5">
-        <h5 class="text-center  pb-3">Flexsh Mall의 상품들</h5>
+        <h5 class="text-center  pb-3">🍇Flexsh Mall의 상품들🍇</h5>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 ">
             <div class="col mb-5" th:each="item : ${itemlist}">
-                <div class="card h-100">
+                <div class="card y_card">
                     <!-- Product image -->
                     <div class="y_card_s_img">
                         <img class="card-img-top" th:src="@{${item.filepath}}" alt="상품이미지"/>
                     </div>
                     <!-- Product details-->
                     <div class="card-body p-4">
-                        <div class="text-center">
+                        <div>
                             <!-- Product name-->
                             <h5 class="fw-bolder" th:text="${item.name}">item name</h5>
                             <!-- Product price-->
-                            <h6 th:text="${item.price} + ' 원'">30,000</h6>
+                            <p th:text="${item.price} + ' 원'"></p>
                         </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center">
-                            <a class="btn btn-outline-success mt-auto" th:href="@{/item/view/{id}(id=${item.id})}">자세히 보기</a>
-                        </div>
+                        <a class="btn btn-outline-success"th:href="@{/item/view/{id}(id=${item.id})}">자세히 보기</a>
                     </div>
                 </div>
             </div>

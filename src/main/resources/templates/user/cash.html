@@ -14,47 +14,10 @@
     <link href="/css/styles2.css" rel="stylesheet" />
 
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-        .container{
-            width: 90%;
-            margin: 10px auto;
-        }
-
-        .first{
-            border: 1px solid green;
-            float : left;
-            width: 30%;
-            box-sizing: border-box;
-        }
-
-        .second{
-            border: 1px solid yellow;
-            float : left;
-            margin-left: 5%;
-            margin-right: 5%;
-            width: 30%;
-            box-sizing: border-box;
-        }
-
-        .third{
-            border: 1px solid red;
-            float : left;
-            width: 30%;
-            box-sizing: border-box;
-        }
+        .first{border: 2px solid #1CC801;}
+        .second{border: 2px solid #F4DC34;}
+        .third{border: 2px solid #FA2829;}
+        .card-img-top{object-fit: cover;}
     </style>
 </head>
 <body>
@@ -63,64 +26,90 @@
 
 </nav>
 
-<div class="container-fluid mt-3">
+<div class="container-fluid y_expnav_height">
     <div class="row">
-
         <!-- SIDE BAR -->
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" th:replace="fragment/navigation :: side(${user})">
+        <nav id="sidebarMenu" class="col-md-3 d-md-block bg-light sidebar collapse" th:replace="fragment/navigation :: side(${user})">
 
         </nav>
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">잔액충전</h1>
+        <main class="col-md-9 px-4 py-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>잔액충전</h2>
             </div>
+            <hr/>
 
             <div class="container">
-                <div class="first" align="center">
-                    <img class="card-img-top" width="20" height="300" src="/images/naver.jpg" alt="..." />
-                    <p style="font-weight: bold">서비스 준비중입니다.</p>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span>5,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="15000"><span>15,000원</span></label><br/>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="20000"><span>20,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="25000"><span>25,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="30000"><span>30,000원</span></label><br/>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="35000"><span>35,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
-                    <p  style="color: #ac2925; margin-top: 30px">네이버페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
-                    <button type="button" class="btn btn-outline-success" id="charge_naver">충 전 하 기</button>
-                </div>
-                <div class="second" align="center">
-                    <img class="card-img-top" width="20" height="300" src="/images/kakao.jpg" alt="..." />
-                    <p style="font-weight: bold">카카오페이 현재 사용가능</p>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span>5,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="15000"><span>15,000원</span></label><br/>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="20000"><span>20,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="25000"><span>25,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="30000"><span>30,000원</span></label><br/>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="35000"><span>35,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
-                    <p  style="color: #ac2925; margin-top: 30px">카카오페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
-                    <button type="button" class="btn btn-outline-success" id="charge_kakao">충 전 하 기</button>
-                </div>
-                <div class="third" align="center">
-                    <img class="card-img-top" width="20" height="300" src="/images/payco.jpg" alt="..." />
-                    <p style="font-weight: bold">서비스 준비중입니다.</p>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="5000"><span>5,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="10000"><span>10,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="15000"><span>15,000원</span></label><br/>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="20000"><span>20,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="25000"><span>25,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="30000"><span>30,000원</span></label><br/>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="35000"><span>35,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="40000"><span>40,000원</span></label>
-                    <label class="box-radio-input"><input type="radio" name="cp_item" value="50000"><span>50,000원</span></label>
-                    <p  style="color: #ac2925; margin-top: 30px">페이코의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
-                    <button type="button" class="btn btn-outline-success" id="charge_payco">충 전 하 기</button>
+                <div class="row g-2">
+                    <div class="col-4">
+                        <div class="first">
+                            <img class="card-img-top" width="200" height="200" src="/images/n_pay.png" alt="네이버페이" />
+                            <div class="px-2 py-3 text-center">
+                                <p style="font-weight: bold">서비스 준비중 입니다.</p>
+                                <select class="form-select form-select-sm cp_item" aria-label="잔액선택">
+                                    <option selected>잔액을 선택해 주세요.</option>
+                                    <option value="5000">5,000원</option>
+                                    <option value="10000">10,000원</option>
+                                    <option value="15000">15,000원</option>
+                                    <option value="20000">20,000원</option>
+                                    <option value="25000">25,000원</option>
+                                    <option value="30000">30,000원</option>
+                                    <option value="35000">35,000원</option>
+                                    <option value="40000">40,000원</option>
+                                    <option value="45000">45,000원</option>
+                                    <option value="50000">50,000원</option>
+                                </select>
+                                <p style="color: #ac2925; margin-top: 30px">네이버페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
+                                <button type="button" class="btn btn-outline-success" id="charge_naver">충 전 하 기</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="second">
+                            <img class="card-img-top" width="200" height="200" src="/images/k_pay.png" alt="카카오페이" />
+                            <div class="px-2 py-3 text-center">
+                                <p style="font-weight: bold">카카오페이 현재 사용가능</p>
+                                <select class="form-select form-select-sm cp_item" aria-label="잔액선택">
+                                    <option selected>잔액을 선택해 주세요.</option>
+                                    <option value="5000">5,000원</option>
+                                    <option value="10000">10,000원</option>
+                                    <option value="15000">15,000원</option>
+                                    <option value="20000">20,000원</option>
+                                    <option value="25000">25,000원</option>
+                                    <option value="30000">30,000원</option>
+                                    <option value="35000">35,000원</option>
+                                    <option value="40000">40,000원</option>
+                                    <option value="45000">45,000원</option>
+                                    <option value="50000">50,000원</option>
+                                </select>
+                                <p  style="color: #ac2925; margin-top: 30px">카카오페이의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
+                                <button type="button" class="btn btn-outline-success" id="charge_kakao">충 전 하 기</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="third" >
+                            <img class="card-img-top" width="200" height="200" src="/images/p_pay.png" alt="페이코페이" />
+                            <div class="px-2 py-3 text-center">
+                                <p style="font-weight: bold">서비스 준비중 입니다.</p>
+                                <select class="form-select form-select-sm cp_item" aria-label="잔액선택">
+                                    <option selected>잔액을 선택해 주세요.</option>
+                                    <option value="5000">5,000원</option>
+                                    <option value="10000">10,000원</option>
+                                    <option value="15000">15,000원</option>
+                                    <option value="20000">20,000원</option>
+                                    <option value="25000">25,000원</option>
+                                    <option value="30000">30,000원</option>
+                                    <option value="35000">35,000원</option>
+                                    <option value="40000">40,000원</option>
+                                    <option value="45000">45,000원</option>
+                                    <option value="50000">50,000원</option>
+                                </select>
+                                <p  style="color: #ac2925; margin-top: 30px">페이코의 최소 충전금액은 5,000원이며 <br/>최대 충전금액은 50,000원 입니다.</p>
+                                <button type="button" class="btn btn-outline-success" id="charge_payco">충 전 하 기</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -131,7 +120,7 @@
         // getter
         var IMP = window.IMP;
         IMP.init('imp85023039');
-        var money = $('input[name="cp_item"]:checked').val();
+        var money = $('.cp_item option:selected').val();
         console.log(money);
 
         IMP.request_pay({
