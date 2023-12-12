@@ -100,13 +100,20 @@
 
     <!--구매하기 확인 스크립트-->
     <script th:inline="javascript">
-        function proceedToCheckout() {
+        function validateFormAndCheckout() {
             var cartItems = [[${cartDto.cartItems.size()}]]; // 장바구니 아이템 갯수
-            if(cartItems > 0) {
-                return confirm('정말 구매하시겠습니까?');
-            } else {
+            var name = document.getElementById("name").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var addr1 = document.getElementById("addr1").value;
+
+            if(cartItems <= 0) {
                 alert('담긴 상품이 없습니다.');
                 return false;
+            } else if(name === "" || phoneNumber === "" || addr1 === "") {
+                alert('이름, 전화번호, 주소는 반드시 입력해야 합니다.');
+                return false;
+            } else {
+                return confirm('정말 구매하시겠습니까?');
             }
         }
     </script>
@@ -242,7 +249,7 @@
                                 </div>
                             </div>
                             <div class="row px-2">
-                                <button type="submit" onclick="return proceedToCheckout();" class="w-100 btn btn-lg btn-outline-primary">구매하기</button>
+                                <button type="submit" onclick="return validateFormAndCheckout();" class="w-100 btn btn-lg btn-outline-primary">구매하기</button>
                             </div>
                            <!-- <div class="row px-2">
                                 <button type="submit" class="w-100 btn btn-lg btn-outline-primary">구매하기</button>

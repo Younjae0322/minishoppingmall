@@ -169,8 +169,7 @@ public class CartService {
         buyer.setMoney(buyer.getMoney() - totalPurchaseAmount);
         seller.setMoney(seller.getMoney() + totalPurchaseAmount);
 
-        // 아이템의 stock과 팔린 갯수(count) 업데이트
-        item.changeStock(-itemCount);
+        // 아이템의 팔린 갯수(count) 업데이트
         item.setCount(item.getCount() + itemCount);
     }
 }
