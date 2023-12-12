@@ -46,7 +46,7 @@
                             <img class="card-img-top" width="200" height="200" src="/images/n_pay.png" alt="네이버페이" />
                             <div class="px-2 py-3 text-center">
                                 <p style="font-weight: bold">서비스 준비중 입니다.</p>
-                                <select class="form-select form-select-sm cp_item" aria-label="잔액선택">
+                                <select class="form-select form-select-sm cp_item_naver" aria-label="잔액선택">
                                     <option selected>잔액을 선택해 주세요.</option>
                                     <option value="5000">5,000원</option>
                                     <option value="10000">10,000원</option>
@@ -68,7 +68,7 @@
                         <div class="second">
                             <img class="card-img-top" width="200" height="200" src="/images/k_pay.png" alt="카카오페이" />
                             <div class="px-2 py-3 text-center">
-                                <p style="font-weight: bold">카카오페이 현재 사용가능</p>
+                                <p style="font-weight: bold">카카오페이</p>
                                 <select class="form-select form-select-sm cp_item" aria-label="잔액선택">
                                     <option selected>잔액을 선택해 주세요.</option>
                                     <option value="5000">5,000원</option>
@@ -115,6 +115,7 @@
         </main>
     </div>
 </div>
+
 <script>
     $('#charge_kakao').click(function () {
         // getter
@@ -123,10 +124,15 @@
         var money = $('.cp_item option:selected').val();
         console.log(money);
 
+        // "잔액을 선택해 주세요."를 선택한 경우 처리
+        if (money === "잔액을 선택해 주세요.") {
+            alert('충전할 금액을 선택해 주세요.');
+            return;  // 함수 종료
+        }
+
         IMP.request_pay({
             pg: 'kakao',
             merchant_uid: 'merchant_' + new Date().getTime(),
-
             name: 'Flexsh Mall 금액 충전',
             amount: money,
             buyer_email: 'iamport@siot.do',
@@ -157,6 +163,19 @@
             document.location.href="/main"; //alert창 확인 후 이동할 url 설정
         });
     });
+
+        // 네이버페이 버튼 클릭 시 처리
+    $('#charge_naver').click(function () {
+        // 네이버페이를 사용하는 로직 추가
+        alert('네이버페이는 현재 서비스 준비중입니다.');
+    });
+
+    // 페이코페이 버튼 클릭 시 처리
+    $('#charge_payco').click(function () {
+        // 페이코페이를 사용하는 로직 추가
+        alert('페이코페이는 현재 서비스 준비중입니다.');
+    });
+
 </script>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

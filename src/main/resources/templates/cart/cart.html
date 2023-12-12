@@ -98,6 +98,19 @@
      }
     </script>
 
+    <!--구매하기 확인 스크립트-->
+    <script th:inline="javascript">
+        function proceedToCheckout() {
+            var cartItems = [[${cartDto.cartItems.size()}]]; // 장바구니 아이템 갯수
+            if(cartItems > 0) {
+                return confirm('정말 구매하시겠습니까?');
+            } else {
+                alert('담긴 상품이 없습니다.');
+                return false;
+            }
+        }
+    </script>
+
 
 </head>
 <body>
@@ -144,8 +157,13 @@
                         <td th:text="${cart_item.getPrice() * cart_item.getCount()}">가격</td>
                         <td th:text="${cart_item.getCreateDate()}">날짜</td>
                         <td class="btn btn-outline-success">
+                            <a onclick="return confirm('정말 삭제하시겠습니까?');"
+                               th:href="@{/user/{id}/cart/{cart_itemId}/delete(id=${user.id}, cart_itemId=${cart_item.getId()})}"
+                               style="text-decoration: none">삭제</a>
+                        </td>
+                        <!--<td class="btn btn-outline-success">
                             <a th:href="@{/user/{id}/cart/{cart_itemId}/delete(id=${user.id}, cart_itemId=${cart_item.getId()})}"
-                               style="text-decoration: none">삭제</a></td>
+                               style="text-decoration: none">삭제</a></td>-->
                     </tr>
                     <tr th:unless="${cartDto.cartItems != null and cartDto.cartItems.size() > 0}">
                         <td colspan="7">장바구니가 비어 있습니다.</td>
@@ -224,8 +242,11 @@
                                 </div>
                             </div>
                             <div class="row px-2">
-                                <button type="submit" class="w-100 btn btn-lg btn-outline-primary">구매하기</button>
+                                <button type="submit" onclick="return proceedToCheckout();" class="w-100 btn btn-lg btn-outline-primary">구매하기</button>
                             </div>
+                           <!-- <div class="row px-2">
+                                <button type="submit" class="w-100 btn btn-lg btn-outline-primary">구매하기</button>
+                            </div>-->
                         </form>
                     </div>
                 </div>

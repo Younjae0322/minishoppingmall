@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<script th:inline="javascript">
+
+    var itemStock = [[${item.stock}]];
+    console.log("Count:", count);
+    console.log("Item Stock:", itemStock);
+
+    function additem() {
+        var count = document.getElementById("count").value
+       if (count > itemStock) {
+            alert("재고가 부족합니다")
+            return false
+        } else {
+            return true
+        }
+    }
+</script>
 <head th:replace="fragment/navigation :: head(title)">
 
 <body>
@@ -36,9 +53,9 @@
                     <p class="y_detailtext"><strong>유통기한</strong><span th:text="${item.expiration}"></span></p>
                     <p class="y_detailtext"><strong>안내사항</strong><span th:text="${item.notification}"></span></p>
                 </div>
-                <form sec:authorize="hasRole('ROLE_USER')" th:action="@{/user/{id}/cart/{itemId}(id=${user.id}, itemId=${item.id})}" method="post" class="d-flex">
+                <form sec:authorize="hasRole('ROLE_USER')" onsubmit="return additem();" th:action="@{/user/{id}/cart/{itemId}(id=${user.id}, itemId=${item.id})}" method="post" class="d-flex">
                     <input class="form-control text-center me-3" id="count" name="count" type="number" value="1"
-                           style="max-width: 3rem"/>
+                           style="max-width: 4rem"/>
                     <button type="submit" class="btn btn-outline-success flex-shrink-0">
                         <i class="bi-cart-fill me-1"></i>
                         Add to cart
