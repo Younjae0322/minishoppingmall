@@ -97,14 +97,48 @@ public class OrderService {
         return result.isEmpty() ? 0 : ((Number) result.get(0)[1]).intValue();
     }
 
+
+    // 오늘 하루의 총 환불 금액 조회
+    public int calculateTodayRefundedTotalAmount() {
+        LocalDateTime today = LocalDateTime.now().truncatedTo(ChronoUnit.DAYS); // 현재 날짜의 0시 0분 0초
+        LocalDateTime tomorrow = today.plusDays(1); // 다음 날의 0시 0분 0초
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss.SSS");
+        String formattedStartDate = today.format(formatter);
+        String formattedEndDate = tomorrow.format(formatter);
+
+        Integer refundedTotalAmount = orderRepository.getRefundedTotalAmountByDateRange(formattedStartDate, formattedEndDate);
+
+        // 값이 없으면 0, 있으면 리턴 처리
+        return refundedTotalAmount != null ? refundedTotalAmount : 0;
+    }
+
     // 날짜별 총 구매 수량 조회
     public Integer getTodayTotalItemCount() {
         LocalDateTime today = LocalDateTime.now();
         LocalDateTime startDate = today.toLocalDate().atStartOfDay();
         LocalDateTime endDate = today.toLocalDate().plusDays(1).atStartOfDay();
 
-        return orderRepository.getTotalItemCountByDateRange(startDate, endDate);
+        Integer TodayTotalItemCount = orderRepository.getTotalItemCountByDateRange(startDate, endDate);
+
+        // 값이 없으면 0, 있으면 리턴처리
+        return TodayTotalItemCount != null ? TodayTotalItemCount : 0;
     }
+    // 날짜별 환불처리된 총 구매수량 조회
+    public int getTodayRefundedTotalItemCount() {
+        LocalDateTime today = LocalDateTime.now().truncatedTo(ChronoUnit.DAYS); // 현재 날짜의 0시 0분 0초
+        LocalDateTime tomorrow = today.plusDays(1); // 다음 날의 0시 0분 0초
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss.SSS");
+        String formattedStartDate = today.format(formatter);
+        String formattedEndDate = tomorrow.format(formatter);
+
+        Integer refundedTotalItemCount = orderRepository.getRefundedItemCountByDateRange(formattedStartDate, formattedEndDate);
+
+        // 값이 없으면 0, 있으면 리턴 처리
+        return refundedTotalItemCount != null ? refundedTotalItemCount : 0;
+    }
+
 
     @Transactional
     public void orderRefund(Integer id, PrincipalDetails principalDetails) {

@@ -27,7 +27,7 @@ public class User {
     private int id;
 
 
-    @Column(unique = true) // username 중목 안됨
+    @Column(unique = true) // username 중복 안됨
     private String username;
     private String password;
     private String name;
@@ -106,6 +106,9 @@ public class User {
                 .role(Role.ROLE_ADMIN)
                 .build();
         return user;
+    }
+    public void updateUser(Cart cart){
+        this.cart = cart;
     }
 
 }

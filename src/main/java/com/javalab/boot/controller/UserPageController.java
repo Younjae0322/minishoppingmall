@@ -69,11 +69,11 @@ public class UserPageController {
         model.addAttribute("orderStatusChartData", convertToChartData(orderStatusChartData));*/
 
         // 오늘 총 주문 금액을 가져와 모델에 추가합니다.
-        int todayTotalAmount = orderService.calculateTodayTotalAmount();
+        int todayTotalAmount = orderService.calculateTodayTotalAmount() - orderService.calculateTodayRefundedTotalAmount();
         model.addAttribute("todayTotalAmount", todayTotalAmount);
 
         // 오늘 총 주문 수량을 가져와 모델에 추가합니다.
-        Integer todayTotalItemCount = orderService.getTodayTotalItemCount();
+        Integer todayTotalItemCount = orderService.getTodayTotalItemCount() - orderService.getTodayRefundedTotalItemCount();
         model.addAttribute("todayTotalItemCount", todayTotalItemCount);
 
         return "user/saleinfo";
@@ -131,8 +131,9 @@ public class UserPageController {
     @PostMapping("/user/{id}/cart/{itemId}")
     public String myCartAdd(@PathVariable("id") Integer id, @PathVariable("itemId")
     Long itemId, int count, @AuthenticationPrincipal PrincipalDetails principalDetails) {
-        userPageService.updatePrincipalDetails(id, principalDetails);
         cartService.addCart(id, itemId, count);
+        // 사용자 세부 정보를 업데이트
+        userPageService.updatePrincipalDetails(id,principalDetails);
         return "redirect:/item/view/{itemId}";
     }
 

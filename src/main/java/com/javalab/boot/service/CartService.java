@@ -54,6 +54,11 @@ public class CartService {
         if(cart == null){
             cart = Cart.createCart(user);
             cartRepository.save(cart);
+
+            // oneToone 매핑이지만 user엔티티안의 cart도 업데이트 시켜줘야한다.
+            // cart create해도 user엔티티안의 cart가 자동으로 업데이트 되지 않는다.
+            user.updateUser(cart);
+            userRepository.save(user);
         }
         // cart_item 생성
         Cart_item cart_item = cart_itemRepository.findByCartIdAndItemId(cart.getId(),item.getId());
