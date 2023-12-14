@@ -96,11 +96,11 @@ public class BoardController {
         return "board/edit";
     }
 
+
     // 수정 처리
     @PostMapping("/edit/{id}")
     public String boardEdit(@PathVariable Long id, @ModelAttribute BoardDto boardDto, @AuthenticationPrincipal PrincipalDetails principalDetails) {
         int userId = principalDetails.getUser().getId();
-        boardDto.setAuthor(userPageService.findUser(userId).getUsername());
         boardService.updateBoard(id, boardDto);
         return "redirect:/board/read/" + id;
     }
@@ -115,3 +115,6 @@ public class BoardController {
     }
 
 }
+
+
+

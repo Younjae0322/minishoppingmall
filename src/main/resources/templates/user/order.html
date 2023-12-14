@@ -96,8 +96,10 @@
                     </tr>
                     </tfoot>
                 </table>
+                <!--                <form th:action="@{/order/update/{id}(id=${order.id})}" th:if="${order.status != '환불 완료'}" method="post"-->
+                <!--                      class="d-flex">-->
                 <form th:action="@{/order/update/{id}(id=${order.id})}" th:if="${order.status != '환불 완료'}" method="post"
-                      class="d-flex">
+                      class="d-flex" onsubmit="return confirm('환불하시겠습니까?')">
                     <div class="container">
                         <select name="status" style="display: none">
                             <option value="환불">환불</option>
