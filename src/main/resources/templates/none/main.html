@@ -30,9 +30,10 @@
 </nav>
 <!-- Slide-->
 <div class="y_slide">
-    <div><a href="#"><img src="https://product-image.kurly.com/cdn-cgi/image/width=1900,height=370,quality=85/banner/main/pc/img/aa8bf126-aa4d-4b1c-82db-a77a21356883.jpg" alt="이벤트"></a></div>
-    <div><a href="#"><img src="https://product-image.kurly.com/cdn-cgi/image/width=1900,height=370,quality=85/banner/main/pc/img/ec06d41b-4dc6-48d3-80c2-70f73dfe43a8.jpg" alt="장바구니"></a></div>
-    <div><a href="#"><img src="https://product-image.kurly.com/cdn-cgi/image/width=1900,height=370,quality=85/banner/main/pc/img/ae8f4910-4731-4900-94ed-dafc1fabc8d1.jpg" alt="베이커리"></a></div>
+    <div><a href="#"><img src="https://product-image.kurly.com/cdn-cgi/image/width=1900,height=370,quality=85/banner/main/pc/img/2334681e-8a63-45a0-9fe3-81ec2a08fc35.jpg" alt="이벤트"></a></div>
+    <div><a href="#"><img src="https://product-image.kurly.com/cdn-cgi/image/width=1900,height=370,quality=85/banner/main/pc/img/e6c1d4fe-e2a0-46de-9ab8-2176dfd04645.png" alt="장바구니"></a></div>
+    <div><a href="#"><img src="https://product-image.kurly.com/cdn-cgi/image/width=1900,height=370,quality=85/banner/main/pc/img/2d190198-477d-400c-8833-62e29ee12efc.jpg" alt="베이커리"></a></div>
+    <div><a href="#"><img src="https://product-image.kurly.com/cdn-cgi/image/width=1900,height=370,quality=85/banner/main/pc/img/f6f52dbc-b20f-4d3b-8889-7f06aad7bbf9.jpg" alt="메인베너"></a></div>
 </div>
 <!-- Header-->
 <!--<header class="bg-success bg-gradient py-5">
@@ -62,7 +63,7 @@
                             <!-- Product price-->
                             <p>16,500원</p>
                         </div>
-                        <a class="btn btn-outline-success" href="/item/view/6">자세히 보기</a>
+                        <a class="btn btn-outline-success" href="/item/view/9">자세히 보기</a>
                     </div>
                 </div>
             </div>
@@ -79,7 +80,7 @@
                             <!-- Product price-->
                             <p>11,540원</p>
                         </div>
-                        <a class="btn btn-outline-success" href="/item/view/6">자세히 보기</a>
+                        <a class="btn btn-outline-success" href="/item/view/10">자세히 보기</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +97,7 @@
                             <!-- Product price-->
                             <p>16,500원</p>
                         </div>
-                        <a class="btn btn-outline-success" href="/item/view/6">자세히 보기</a>
+                        <a class="btn btn-outline-success" href="/item/view/11">자세히 보기</a>
                     </div>
                 </div>
             </div>
@@ -118,7 +119,7 @@
                             <!-- Product name-->
                             <h5 class="fw-bolder" th:text="${item.name}">item name</h5>
                             <!-- Product price-->
-                            <p th:text="${item.price} + ' 원'"></p>
+                            <p th:text="${#numbers.formatInteger(item.price, 3, 'COMMA') + '원'}"></p>
                         </div>
                         <a class="btn btn-outline-success"th:href="@{/item/view/{id}(id=${item.id})}">자세히 보기</a>
                     </div>

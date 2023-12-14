@@ -161,7 +161,7 @@
                                th:text="${cart_item.getItemName()}"></a>
                         </td>
                         <td th:text="${cart_item.getCount()}">수량</td>
-                        <td th:text="${cart_item.getPrice() * cart_item.getCount()}">가격</td>
+                        <td th:text="${#numbers.formatInteger(cart_item.getPrice() * cart_item.getCount(), 1, 'COMMA') + '원'}">가격</td>
                         <td th:text="${cart_item.getCreateDate()}">날짜</td>
                         <td class="btn btn-outline-success">
                             <a onclick="return confirm('정말 삭제하시겠습니까?');"
@@ -265,7 +265,7 @@
                             <h4 class="my-0 fw-normal">총 결제금액</h4>
                         </div>
                         <form class="card-body">
-                            <h1 class="card-title pricing-card-title" th:text="${cartDto.totalPrice} + '₩'">$0</h1>
+                            <h1 class="card-title pricing-card-title" th:text="${#numbers.formatInteger(cartDto.totalPrice, 1, 'COMMA') + '₩'}">$0</h1>
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li>잘못 담은 물건이 있는지 확인해보세요!</li>
                             </ul>
