@@ -41,6 +41,7 @@
                         <li>
                             <hr class="dropdown-divider"/>
                         </li>
+                        <li><a class="dropdown-item" th:href="@{/board/list}">고객 게시판</a></li>
                         <li><a class="dropdown-item" sec:authorize="hasRole('ROLE_ADMIN')" href="/item/write">상품 등록</a>
                         </li>
                         <li><a class="dropdown-item" sec:authorize="hasRole('ROLE_ADMIN')"
@@ -92,6 +93,12 @@
                 <a class="nav-link" th:href="@{/user/{id}/order(id=${user.id})}" sec:authorize="hasRole('ROLE_USER')">
                     <span data-feather="order"></span>
                     주문내역
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/board/list}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
+                    <span data-feather="board"></span>
+                    고객 게시판
                 </a>
             </li>
 

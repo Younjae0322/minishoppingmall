@@ -28,6 +28,12 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     List<Object[]> getTotalAmountByDateRange( @Param("startDate") String startDate,
                                               @Param("endDate") String endDate);
 
+    @Query("SELECT SUM(o.price) FROM Order o " +
+            "WHERE o.status = '환불 완료' " +
+            "AND o.createDate >= CAST(:startDate AS java.time.LocalDateTime) " +
+            "AND o.createDate < CAST(:endDate AS java.time.LocalDateTime)")
+    Integer getRefundedTotalAmountByDateRange(@Param("startDate") String startDate, @Param("endDate") String endDate);
+
     /**
      * 아래 Query문은 group by를 하지 않았기 때문에
      * 따로 CAST 함수를 사용하여 데이터 비교를 하지 않고 합계 count가 정상적으로 반환 됩니다.
@@ -37,4 +43,14 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
             "JOIN o.order_items oi " +
             "WHERE o.createDate >= :startDate AND o.createDate <= :endDate")
     Integer getTotalItemCountByDateRange(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
+
+    // 환불 완료 처리된 데이터 계산
+    @Query("SELECT SUM(oi.count) " +
+            "FROM Order o " +
+            "JOIN o.order_items oi " +
+            "WHERE o.status = '환불 완료' " +
+            "  AND o.createDate >= CAST(:startDate AS java.time.LocalDateTime) " +
+            "  AND o.createDate < CAST(:endDate AS java.time.LocalDateTime)")
+    Integer getRefundedItemCountByDateRange(@Param("startDate") String startDate, @Param("endDate") String endDate);
+
 }
