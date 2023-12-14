@@ -88,14 +88,14 @@
                                th:text="${item.item.name}"></a>
                         </td>
                         <td th:text="${item.getCount()}">수량</td>
-                        <td th:text="${item.price}">가격</td>
-                        <td th:text="${item.price * item.count}">합계</td>
+                        <td th:text="${#numbers.formatInteger(item.price, 1, 'COMMA') + '원'}">가격</td>
+                        <td th:text="${#numbers.formatInteger(item.price * item.count, 1, 'COMMA') + '원'}">합계</td>
                     </tr>
                     </tbody>
                     <tfoot>
                     <tr>
                         <td colspan="4"></td>
-                        <td th:text="${sale.price}"> 총 가격</td>
+                        <td th:text="${#numbers.formatInteger(sale.price, 1, 'COMMA') + '원'}"> 총 가격</td>
                     </tr>
                     </tfoot>
                 </table>

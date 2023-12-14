@@ -61,7 +61,7 @@
                             <!-- Product name-->
                             <h5>제주감귤</h5>
                             <!-- Product price-->
-                            <p>16500원</p>
+                            <p>16,500원</p>
                         </div>
                         <a class="btn btn-outline-success" href="/item/view/9">자세히 보기</a>
                     </div>
@@ -78,7 +78,7 @@
                             <!-- Product name-->
                             <h5>다짐육 150g (냉장)</h5>
                             <!-- Product price-->
-                            <p>11540원</p>
+                            <p>11,540원</p>
                         </div>
                         <a class="btn btn-outline-success" href="/item/view/10">자세히 보기</a>
                     </div>
@@ -95,7 +95,7 @@
                             <!-- Product name-->
                             <h5>무항생제 1++ 대란 20구</h5>
                             <!-- Product price-->
-                            <p>16500원</p>
+                            <p>16,500원</p>
                         </div>
                         <a class="btn btn-outline-success" href="/item/view/11">자세히 보기</a>
                     </div>
@@ -119,7 +119,7 @@
                             <!-- Product name-->
                             <h5 class="fw-bolder" th:text="${item.name}">item name</h5>
                             <!-- Product price-->
-                            <p th:text="${item.price} + ' 원'"></p>
+                            <p th:text="${#numbers.formatInteger(item.price, 3, 'COMMA') + '원'}"></p>
                         </div>
                         <a class="btn btn-outline-success"th:href="@{/item/view/{id}(id=${item.id})}">자세히 보기</a>
                     </div>
