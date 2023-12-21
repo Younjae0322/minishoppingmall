@@ -62,3 +62,8 @@
   <img src="https://img.shields.io/badge/GitKraken-%238A4182?style=for-the-badge&logo=GitKraken&logoColor=white">
 </div>
 
+
+## 협업툴(GitKraken)
+- 깃크라켄을 사용하여 진행상황을 공유, 관리함
+
+
