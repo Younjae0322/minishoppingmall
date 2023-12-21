@@ -66,4 +66,4 @@
 ## 협업툴(GitKraken)
 - 깃크라켄을 사용하여 진행상황을 공유, 관리함
 
-
+  ![GitKraken](https://github.com/Younjae0322/minishoppingmall/blob/main/src/main/resources/static/assets/gitkraken.PNG)
