@@ -72,6 +72,11 @@
   - 비밀번호 중복체크 기능 AJAX 사용 비동기 호출으로 화면에서 바로 처리
   - 실제 이메일로 인증번호 발송 후 인증
   - 카카오MAP API 사용으로 주소 입력 받기 가능
+<div>
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/14398876-e44e-443f-9e71-5ac1ffce537c" width="33%" height="500">
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/c642387b-14f2-4a6c-84f0-2bbad7ba94f0" width="33%" height="500">
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/1675e501-0818-4ae6-bfd2-7c60abe3f3f9" width="33%" height="500">
+</div>
 
 ### 2. 상품등록  
   <details> <summary>상품등록 : 관리자 권한 확인 후 관리자만 등록 가능</summary>
