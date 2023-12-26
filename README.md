@@ -76,6 +76,7 @@
 <img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/14398876-e44e-443f-9e71-5ac1ffce537c" width="30%" height="500">
 <img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/c642387b-14f2-4a6c-84f0-2bbad7ba94f0" width="30%" height="500">
 <img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/1675e501-0818-4ae6-bfd2-7c60abe3f3f9" width="30%" height="500">
+  <p align="center"><strong>클릭시 고화질로 보실 수 있습니다.</p>
 </div>
 
 ### 2. 상품등록  
