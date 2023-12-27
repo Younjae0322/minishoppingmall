@@ -102,6 +102,8 @@
 
   - 물품을 구매하기 위한 잔액 충전 기능
   - 소셜로그인 사용자가 아니더라도 카카오페이 충전 가능
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/46030d80-309f-4eaa-8327-064f2119f08f" width="50%" height="500">
+
 
   <details> <summary>상품구매 : 구매자 권한 확인 후 구매 가능</summary>
   </details>
@@ -110,7 +112,22 @@
   - 한번에 여러 상품 구매 가능, 현재 선택 구매는 불가능
   - 장바구니에서 배송지 정보 입력시 카카오 MAP API사용 주소 불러오기/ 및 회원가입시 기존 사용자의 주소 Script사용하여 가져오기 가능
   - 구매자 잔액 감소 및 관리자 잔액 증가 구현완료.
+<div>
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/d40f9597-9302-4f2a-b0d4-5a4817cde6a1" width="30%" height="500">
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/11c2168b-9486-4326-9671-ff0444a39618" width="30%" height="500">
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/ec320c19-a9d1-4e8c-9b62-1eba4228b9c6" width="30%" height="500">
+  <p align="center"><strong>클릭시 고화질로 보실 수 있습니다.</p>
+</div>
 
+
+### 4. 상품배송, 환불처리, 매출현황
+<details> <summary>상품배송,환불처리 : 관리자의 권한으로 배송관리 가능</summary>
+  </details>
+
+  - 관리자 페이지에서 배송대기, 배송중, 배송완료, 상태 변경 가능
+  - 고객 주문내역페이지에서 상품 상태 확인 가능
+  - 고객 환불요청 기능 추가
+  - 관리자의 승인 후 환불 처리 / 금액 변동 처리 완료.  
 
 ## 협업툴(GitKraken)
 - 깃크라켄을 사용하여 진행상황을 공유, 관리함
