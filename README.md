@@ -129,6 +129,14 @@
   - 고객 환불요청 기능 추가
   - 관리자의 승인 후 환불 처리 / 금액 변동 처리 완료.
   - 관리자 페이지 매출현황 Chart.js사용 관리가능.
+<div>
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/cc5bb2cd-04d4-4ae4-8e73-17ab0063f0ec" width="30%" height="500">
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/8223021c-8aeb-4513-b946-9d541f180d73" width="30%" height="500">
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/71ae2cd4-0a60-4c30-8e43-e4eb3511e608" width="30%" height="500">
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/d3d07529-1a19-4335-96c1-680422b11f84" width="40%" height="500">
+<img src="https://github.com/Younjae0322/minishoppingmall/assets/141123013/56a13a19-5e1b-4bf6-a3af-6b9a76114aa0" width="40%" height="500">
+  <p align="center"><strong>클릭시 고화질로 보실 수 있습니다.</p>
+</div>
   
 
 ## 협업툴(GitKraken)
