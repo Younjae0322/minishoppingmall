@@ -51,6 +51,7 @@
 ### DEPLOY
 <div>
   <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white">
+  <img src="https://img.shields.io/badge/cloudtype-007396?style=for-the-badge&logo=cloudtype&logoColor=white">
 </div>
 
 ### IDE
